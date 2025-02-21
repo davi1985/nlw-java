@@ -1,7 +1,7 @@
 package br.com.sarahcode.events.controllers;
 
 import br.com.sarahcode.events.models.Event;
-import br.com.sarahcode.events.services.EventService;
+import br.com.sarahcode.events.services.EventsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,22 +12,22 @@ import java.util.List;
 public class EventsController {
 
     @Autowired
-    private EventService eventService;
+    private EventsService eventsService;
 
     @PostMapping("/events")
     public Event addNewEvent(@RequestBody Event newEvent) {
-        return eventService.addNewEvent(newEvent);
+        return eventsService.addNewEvent(newEvent);
     }
 
     @GetMapping("/events")
     public List<Event> getAllEvents() {
-        return eventService.getAllEvents();
+        return eventsService.getAllEvents();
     }
 
 
     @GetMapping("/events/{prettyName}")
     public ResponseEntity<Event> getEventByPrettyName(@PathVariable String prettyName) {
-        Event event = eventService.getByPrettyName(prettyName);
+        Event event = eventsService.getByPrettyName(prettyName);
 
         if (event != null) {
             return ResponseEntity.ok(event);

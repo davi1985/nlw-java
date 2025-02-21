@@ -1,4 +1,7 @@
 package br.com.sarahcode.events.exceptions;
 
-public record UserIndicatorNotFound() {
+public class UserIndicatorNotFound extends RuntimeException {
+    public UserIndicatorNotFound(String message) {
+        super(message);
+    }
 }

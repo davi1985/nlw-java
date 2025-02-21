@@ -1,4 +1,4 @@
 package br.com.sarahcode.events.dtos;
 
-public record SubscriptionResponse() {
+public record SubscriptionResponse(Integer subscriptionNumber, String designation) {
 }
